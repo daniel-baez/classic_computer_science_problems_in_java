@@ -1,0 +1,81 @@
+# Java
+*.class
+*.log
+*.ctxt
+
+# Eclipse
+.project
+.classpath
+.settings/
+bin/
+
+# IntelliJ IDEA
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# NetBeans
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+# VS Code
+.vscode/
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+
+# Bazel
+bazel-*
+
+# Nix
+.result
+.nix-result
+
+# Direnv
+.envrc
+
+# Spacemacs
+*~
+\#*\#
+.\#*
+
+# Logs
+*.log
+
+# Environment files
+.env
+*.env
+
+# Backup files
+*.bak
+*.swp
+
+# Build directories
+/build/
+out/
+
+# Nix and Bazel specific
+*.bazelproject
+bazel-bin/
+bazel-out/
+bazel-testlogs/
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*.swo
+
