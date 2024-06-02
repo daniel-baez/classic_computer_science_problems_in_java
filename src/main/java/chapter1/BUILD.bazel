@@ -1,0 +1,5 @@
+java_binary(
+    name = "compressed-gene",
+    srcs = ["CompressedGene.java"],
+    main_class = "chapter1.CompressedGene",
+)

@@ -1,5 +1,0 @@
-java_binary(
-    name = "run",
-    srcs = ["CompressedGene.java"],
-    main_class = "chapter1.CompressedGene",
-)
