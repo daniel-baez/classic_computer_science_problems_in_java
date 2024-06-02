@@ -5,4 +5,6 @@ pkgs.mkShell {
     pkgs.bazel
     pkgs.openjdk11
   ];
+  shellHook = ''
+  '';
 }
