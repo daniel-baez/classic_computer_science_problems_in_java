@@ -8,4 +8,49 @@ java_binary(
     name = "fib1",
     srcs = ["Fib1.java"],
     main_class = "chapter1.Fib1",
+    javacopts = [
+        "-Xep:InfiniteRecursion:OFF",
+    ],
+)
+
+java_binary(
+    name = "fib2",
+    srcs = ["Fib2.java"],
+    main_class = "chapter1.Fib2",
+)
+
+java_binary(
+    name = "fib3",
+    srcs = ["Fib3.java"],
+    main_class = "chapter1.Fib3",
+)
+
+java_binary(
+    name = "fib4",
+    srcs = ["Fib4.java"],
+    main_class = "chapter1.Fib4",
+)
+
+java_binary(
+    name = "fib5",
+    srcs = ["Fib5.java"],
+    main_class = "chapter1.Fib5",
+)
+
+java_binary(
+    name = "hanoi",
+    srcs = ["Hanoi.java"],
+    main_class = "chapter1.Hanoi",
+)
+
+java_binary(
+    name = "pi-calculator",
+    srcs = ["PiCalculator.java"],
+    main_class = "chapter1.PiCalculator",
+)
+
+java_binary(
+    name = "unbreakable-encryption",
+    srcs = ["UnbreakableEncryption.java", "KeyPair.java"],
+    main_class = "chapter1.UnbreakableEncryption",
 )
