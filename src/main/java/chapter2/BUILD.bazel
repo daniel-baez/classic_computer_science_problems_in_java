@@ -1,0 +1,17 @@
+java_binary(
+    name = "gene",
+    srcs = ["Gene.java"],
+    main_class = "chapter2.Gene",
+)
+
+java_binary(
+    name = "generic-search",
+    srcs = ["GenericSearch.java"],
+    main_class = "chapter2.GenericSearch",
+)
+
+# java_binary(
+#     name = "maze",
+#     srcs = ["Maze.java"],
+#     main_class = "chapter2.Maze",
+# )
