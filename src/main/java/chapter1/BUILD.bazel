@@ -3,3 +3,9 @@ java_binary(
     srcs = ["CompressedGene.java"],
     main_class = "chapter1.CompressedGene",
 )
+
+java_binary(
+    name = "fib1",
+    srcs = ["Fib1.java"],
+    main_class = "chapter1.Fib1",
+)
