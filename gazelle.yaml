@@ -1,4 +1,4 @@
 directive {
     name = "prefix"
-    value = "github.com/daniel-baez/classic_computer_science_problems_in_java"
+    value = "cl.baezdaniel"
 }
