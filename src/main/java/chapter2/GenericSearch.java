@@ -87,11 +87,12 @@ public class GenericSearch {
 		}
 	}
 
-	public static <T> Node<T> dfs(T initial, Predicate<T> goalTest,
-			Function<T, List<T>> successors) {
+	public static <T> Node<T> dfs(T initial, Predicate<T> goalTest, Function<T, List<T>> successors) {
+
 		// frontier is where we've yet to go
 		Stack<Node<T>> frontier = new Stack<>();
 		frontier.push(new Node<>(initial, null));
+
 		// explored is where we've been
 		Set<T> explored = new HashSet<>();
 		explored.add(initial);
@@ -100,6 +101,7 @@ public class GenericSearch {
 		while (!frontier.isEmpty()) {
 			Node<T> currentNode = frontier.pop();
 			T currentState = currentNode.state;
+
 			// if we found the goal, we're done
 			if (goalTest.test(currentState)) {
 				return currentNode;
@@ -127,11 +129,12 @@ public class GenericSearch {
 		return path;
 	}
 
-	public static <T> Node<T> bfs(T initial, Predicate<T> goalTest,
-			Function<T, List<T>> successors) {
+	public static <T> Node<T> bfs(T initial, Predicate<T> goalTest, Function<T, List<T>> successors) {
+
 		// frontier is where we've yet to go
 		Queue<Node<T>> frontier = new LinkedList<>();
 		frontier.offer(new Node<>(initial, null));
+
 		// explored is where we've been
 		Set<T> explored = new HashSet<>();
 		explored.add(initial);
@@ -140,10 +143,12 @@ public class GenericSearch {
 		while (!frontier.isEmpty()) {
 			Node<T> currentNode = frontier.poll();
 			T currentState = currentNode.state;
+
 			// if we found the goal, we're done
 			if (goalTest.test(currentState)) {
 				return currentNode;
 			}
+
 			// check where we can go next and haven't explored
 			for (T child : successors.apply(currentState)) {
 				if (explored.contains(child)) {
@@ -153,17 +158,19 @@ public class GenericSearch {
 				frontier.offer(new Node<>(child, currentNode));
 			}
 		}
+
 		return null; // went through everything and never found goal
 	}
 
-	public static <T> Node<T> astar(T initial, Predicate<T> goalTest,
-			Function<T, List<T>> successors, ToDoubleFunction<T> heuristic) {
+	public static <T> Node<T> astar(T initial, Predicate<T> goalTest, Function<T, List<T>> successors, ToDoubleFunction<T> heuristic) {
 		// frontier is where we've yet to go
 		PriorityQueue<Node<T>> frontier = new PriorityQueue<>();
 		frontier.offer(new Node<>(initial, null, 0.0, heuristic.applyAsDouble(initial)));
+
 		// explored is where we've been
 		Map<T, Double> explored = new HashMap<>();
 		explored.put(initial, 0.0);
+
 		// keep going while there is more to explore
 		while (!frontier.isEmpty()) {
 			Node<T> currentNode = frontier.poll();

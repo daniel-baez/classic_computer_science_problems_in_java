@@ -19,6 +19,7 @@ package chapter2;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.Supplier;
 
 import chapter2.GenericSearch.Node;
 
@@ -183,39 +184,27 @@ public class Maze {
         return (xdist + ydist);
     }
 
+    public static void testSolution(String name, Maze m, Supplier<Node<MazeLocation>> strategy) {
+        final Node<MazeLocation> solution = strategy.get();
+        if (solution == null) {
+            System.out.println(String.format("No solution found using %s search!", name));
+        } else {
+            List<MazeLocation> path = GenericSearch.nodeToPath(solution);
+            m.mark(path);
+            System.out.println(m);
+            System.out.printf("Strategy: %s took: %d steps\n", name, path.size());
+            m.clear(path);
+        }
+    }
+
     public static void main(String[] args) {
         Maze m = new Maze();
         System.out.println(m);
 
-        // Node<MazeLocation> solution1 = GenericSearch.dfs(m.start, m::goalTest, m::successors);
-        // if (solution1 == null) {
-        //     System.out.println("No solution found using depth-first search!");
-        // } else {
-        //     List<MazeLocation> path1 = GenericSearch.nodeToPath(solution1);
-        //     m.mark(path1);
-        //     System.out.println(m);
-        //     m.clear(path1);
-        // }
-
-        // Node<MazeLocation> solution2 = GenericSearch.bfs(m.start, m::goalTest, m::successors);
-        // if (solution2 == null) {
-        //     System.out.println("No solution found using breadth-first search!");
-        // } else {
-        //     List<MazeLocation> path2 = GenericSearch.nodeToPath(solution2);
-        //     m.mark(path2);
-        //     System.out.println(m);
-        //     m.clear(path2);
-        // }
-
-        // Node<MazeLocation> solution3 = GenericSearch.astar(m.start, m::goalTest, m::successors, m::manhattanDistance);
-        // if (solution3 == null) {
-        //     System.out.println("No solution found using A*!");
-        // } else {
-        //     List<MazeLocation> path3 = GenericSearch.nodeToPath(solution3);
-        //     m.mark(path3);
-        //     System.out.println(m);
-        //     m.clear(path3);
-        // }
+        testSolution("depth-first", m, () -> GenericSearch.dfs(m.start, m::goalTest, m::successors));
+        testSolution("breadth-first", m, () -> GenericSearch.bfs(m.start, m::goalTest, m::successors));
+        testSolution("astar manhattan", m, () -> GenericSearch.astar(m.start, m::goalTest, m::successors, m::manhattanDistance));
+        testSolution("astar euclidean", m, () -> GenericSearch.astar(m.start, m::goalTest, m::successors, m::euclideanDistance));
     }
 
 }

@@ -1,0 +1,23 @@
+java_binary(
+    name = "map-coloring-constraint",
+    srcs = ["MapColoringConstraint.java", "Constraint.java", "CSP.java"],
+    main_class = "chapter3.MapColoringConstraint",
+)
+# 
+# java_binary(
+#     name = "generic-search",
+#     srcs = ["GenericSearch.java"],
+#     main_class = "chapter2.GenericSearch",
+# )
+# 
+# java_binary(
+#     name = "maze",
+#     srcs = ["Maze.java", "GenericSearch.java", ],
+#     main_class = "chapter2.Maze",
+# )
+# 
+# java_binary(
+#     name = "mcstate",
+#     srcs = ["MCState.java", "GenericSearch.java", ],
+#     main_class = "chapter2.MCState",
+# )
