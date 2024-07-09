@@ -31,4 +31,5 @@ public abstract class Constraint<V, D> {
 
 	// must be overridden by subclasses
 	public abstract boolean satisfied(Map<V, D> assignment);
+
 }

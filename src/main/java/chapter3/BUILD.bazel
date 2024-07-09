@@ -1,23 +1,35 @@
+java_library(
+    name = "constraint_lib",
+    srcs = [
+        "Constraint.java",
+        "CSP.java",
+    ],
+)
+
 java_binary(
     name = "map-coloring-constraint",
-    srcs = ["MapColoringConstraint.java", "Constraint.java", "CSP.java"],
+    srcs = ["MapColoringConstraint.java"],
     main_class = "chapter3.MapColoringConstraint",
+    deps = [":constraint_lib"],
 )
-# 
-# java_binary(
-#     name = "generic-search",
-#     srcs = ["GenericSearch.java"],
-#     main_class = "chapter2.GenericSearch",
-# )
-# 
-# java_binary(
-#     name = "maze",
-#     srcs = ["Maze.java", "GenericSearch.java", ],
-#     main_class = "chapter2.Maze",
-# )
-# 
-# java_binary(
-#     name = "mcstate",
-#     srcs = ["MCState.java", "GenericSearch.java", ],
-#     main_class = "chapter2.MCState",
-# )
+
+java_binary(
+    name = "queens-constraint",
+    srcs = ["QueensConstraint.java"],
+    main_class = "chapter3.QueensConstraint",
+    deps = [":constraint_lib"],
+)
+
+java_binary(
+    name = "word-search",
+    srcs = ["WordSearchConstraint.java", "WordGrid.java"],
+    main_class = "chapter3.WordSearchConstraint",
+    deps = [":constraint_lib"],
+)
+
+java_binary(
+    name = "send-more-money",
+    srcs = ["SendMoreMoneyConstraint.java"],
+    main_class = "chapter3.SendMoreMoneyConstraint",
+    deps = [":constraint_lib"],
+)

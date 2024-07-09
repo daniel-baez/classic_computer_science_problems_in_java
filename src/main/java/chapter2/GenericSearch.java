@@ -87,7 +87,9 @@ public class GenericSearch {
 		}
 	}
 
-	public static <T> Node<T> dfs(T initial, Predicate<T> goalTest, Function<T, List<T>> successors) {
+	public static <T> Node<T> dfs(T initial,
+                                Predicate<T> goalTest,
+                                Function<T, List<T>> successors) {
 
 		// frontier is where we've yet to go
 		Stack<Node<T>> frontier = new Stack<>();
@@ -129,7 +131,9 @@ public class GenericSearch {
 		return path;
 	}
 
-	public static <T> Node<T> bfs(T initial, Predicate<T> goalTest, Function<T, List<T>> successors) {
+	public static <T> Node<T> bfs(T initial,
+                                Predicate<T> goalTest,
+                                Function<T, List<T>> successors) {
 
 		// frontier is where we've yet to go
 		Queue<Node<T>> frontier = new LinkedList<>();
@@ -162,7 +166,9 @@ public class GenericSearch {
 		return null; // went through everything and never found goal
 	}
 
-	public static <T> Node<T> astar(T initial, Predicate<T> goalTest, Function<T, List<T>> successors, ToDoubleFunction<T> heuristic) {
+	public static <T> Node<T> astar(T initial,
+                                  Predicate<T> goalTest,
+                                  Function<T, List<T>> successors, ToDoubleFunction<T> heuristic) {
 		// frontier is where we've yet to go
 		PriorityQueue<Node<T>> frontier = new PriorityQueue<>();
 		frontier.offer(new Node<>(initial, null, 0.0, heuristic.applyAsDouble(initial)));

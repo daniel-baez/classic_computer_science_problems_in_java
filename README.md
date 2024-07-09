@@ -1,4 +1,20 @@
 # Development Commands
 
-- `bazel query //...`
-- `bazel run //src/main/java/chapter1:compressed-gene`
+- "bazel query //..."
+- "bazel run //src/main/java/chapter1:compressed-gene"
+- "bazel run //src/main/java/chapter1:fib1"
+- "bazel run //src/main/java/chapter1:fib2"
+- "bazel run //src/main/java/chapter1:fib3"
+- "bazel run //src/main/java/chapter1:fib4"
+- "bazel run //src/main/java/chapter1:fib5"
+- "bazel run //src/main/java/chapter1:hanoi"
+- "bazel run //src/main/java/chapter1:pi-calculator"
+- "bazel run //src/main/java/chapter1:unbreakable-encryption"
+- "bazel run //src/main/java/chapter2:gene"
+- "bazel run //src/main/java/chapter2:generic-search"
+- "bazel run //src/main/java/chapter2:maze"
+- "bazel run //src/main/java/chapter2:mcstate"
+- "bazel run //src/main/java/chapter3:map-coloring-constraint"
+- "bazel run //src/main/java/chapter3:queens-constraint"
+- "bazel run //src/main/java/chapter3:word-search"
+- "bazel run //src/main/java/chapter3:send-more-money"
